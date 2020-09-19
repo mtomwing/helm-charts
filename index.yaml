@@ -1,5 +1,21 @@
 apiVersion: v1
 entries:
+  radarr:
+  - apiVersion: v2
+    appVersion: 0.2.0.1540-ls19
+    created: "2020-09-19T03:13:20.132303537Z"
+    description: A Helm chart for radarr
+    digest: 7636887090db94363d1ba1ff71ec7bf6ecdf2a9a8e2203245395d0afcca28149
+    home: https://github.com/linuxserver/docker-radarr
+    maintainers:
+    - email: mtomwing@gmail.com
+      name: mtomwing
+      url: https://paperback.dev
+    name: radarr
+    type: application
+    urls:
+    - https://github.com/mtomwing/helm-charts/releases/download/radarr-1.0.0/radarr-1.0.0.tgz
+    version: 1.0.0
   sonarr:
   - apiVersion: v2
     appVersion: 2.0.0.5343-ls119
