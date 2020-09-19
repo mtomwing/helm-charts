@@ -1,0 +1,20 @@
+{{- if .Values.persistence.enabled -}}
+{{- if not .Values.persistence.existingClaim -}}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ include "radarr.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "radarr.labels" . | nindent 4 }}
+spec:
+  {{- with .Values.persistence.storageClass }}
+  storageClassName: {{ . }}
+  {{- end }}
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: {{ .Values.persistence.storageSize }}
+{{- end -}}
+{{- end -}}
