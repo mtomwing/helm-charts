@@ -1,0 +1,13 @@
+apiVersion: v2
+name: radarr
+description: A Helm chart for radarr
+home: https://github.com/linuxserver/docker-radarr
+
+maintainers:
+- name: mtomwing
+  email: mtomwing@gmail.com
+  url: https://paperback.dev
+
+type: application
+version: 1.0.0
+appVersion: 0.2.0.1540-ls19
