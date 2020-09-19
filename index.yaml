@@ -1,5 +1,21 @@
 apiVersion: v1
 entries:
+  sonarr:
+  - apiVersion: v2
+    appVersion: 2.0.0.5343-ls119
+    created: "2020-09-19T01:49:40.224638862Z"
+    description: A Helm chart for Sonarr
+    digest: c3c80dc55c1fb43e1a760f33bf28c7a4c52af10d84d14e5f89e3cba2c3340677
+    home: https://github.com/linuxserver/docker-sonarr
+    maintainers:
+    - email: mtomwing@gmail.com
+      name: mtomwing
+      url: https://paperback.dev
+    name: sonarr
+    type: application
+    urls:
+    - https://github.com/mtomwing/helm-charts/releases/download/sonarr-1.0.0/sonarr-1.0.0.tgz
+    version: 1.0.0
   test-app:
   - apiVersion: v2
     appVersion: 1.16.0
