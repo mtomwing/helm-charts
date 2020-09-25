@@ -33,6 +33,6 @@ spec:
           - path: /slserver
             backend:
               serviceName: {{ include "synclounge.fullname" $ }}
-              servicePort: http
+              servicePort: http-server
     {{- end }}
 {{- end -}}

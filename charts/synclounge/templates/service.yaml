@@ -8,9 +8,13 @@ metadata:
 spec:
   type: {{ .Values.service.type }}
   ports:
-    - port: {{ .Values.service.port }}
-      targetPort: http
+    - name: http-web
+      port: 8088
+      targetPort: http-web
       protocol: TCP
-      name: http
+    - name: http-server
+      port: 8089
+      targetPort: http-server
+      protocol: TCP
   selector:
     {{- include "synclounge.selectorLabels" . | nindent 4 }}

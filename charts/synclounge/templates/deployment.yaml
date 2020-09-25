@@ -40,18 +40,18 @@ spec:
               containerPort: 8088
               protocol: TCP
           ports:
-            - name: http
+            - name: http-server
               containerPort: 8089
               protocol: TCP
           livenessProbe:
             tcpSocket:
-              port: http
+              port: http-server
             initialDelaySeconds: 5
             failureThreshold: 2
             timeoutSeconds: 5
           readinessProbe:
             tcpSocket:
-              port: http
+              port: http-server
             initialDelaySeconds: 5
             failureThreshold: 2
             timeoutSeconds: 5
