@@ -43,4 +43,20 @@ entries:
     urls:
     - https://github.com/mtomwing/helm-charts/releases/download/test-app-0.1.0/test-app-0.1.0.tgz
     version: 0.1.0
+  trilium:
+  - apiVersion: v2
+    appVersion: 0.44.4
+    created: "2020-09-25T03:20:33.459163486Z"
+    description: A Helm chart for trilium
+    digest: 8997c45e9f01241bc8933336110c0b8ca735400211ccd57e4cee14af99bea0ff
+    home: https://github.com/linuxserver/docker-trilium
+    maintainers:
+    - email: mtomwing@gmail.com
+      name: mtomwing
+      url: https://paperback.dev
+    name: trilium
+    type: application
+    urls:
+    - https://github.com/mtomwing/helm-charts/releases/download/trilium-1.0.0/trilium-1.0.0.tgz
+    version: 1.0.0
 generated: "2020-09-03T00:32:25.496508556Z"
