@@ -32,6 +32,22 @@ entries:
     urls:
     - https://github.com/mtomwing/helm-charts/releases/download/sonarr-1.0.0/sonarr-1.0.0.tgz
     version: 1.0.0
+  synclounge:
+  - apiVersion: v2
+    appVersion: 6aecc9bd-ls1
+    created: "2020-09-25T03:50:57.227126493Z"
+    description: A Helm chart for synclounge
+    digest: 06cf345b26904089c2c6d138ce019889a296e42683beb30eb106347c7b9ec788
+    home: https://github.com/linuxserver/docker-synclounge
+    maintainers:
+    - email: mtomwing@gmail.com
+      name: mtomwing
+      url: https://paperback.dev
+    name: synclounge
+    type: application
+    urls:
+    - https://github.com/mtomwing/helm-charts/releases/download/synclounge-1.0.0/synclounge-1.0.0.tgz
+    version: 1.0.0
   test-app:
   - apiVersion: v2
     appVersion: 1.16.0
