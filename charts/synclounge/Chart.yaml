@@ -1,0 +1,13 @@
+apiVersion: v2
+name: synclounge
+description: A Helm chart for synclounge
+home: https://github.com/linuxserver/docker-synclounge
+
+maintainers:
+- name: mtomwing
+  email: mtomwing@gmail.com
+  url: https://paperback.dev
+
+type: application
+version: 1.0.0
+appVersion: 6aecc9bd-ls1
