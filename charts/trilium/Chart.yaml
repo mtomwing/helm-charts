@@ -1,0 +1,13 @@
+apiVersion: v2
+name: trilium
+description: A Helm chart for trilium
+home: https://github.com/linuxserver/docker-trilium
+
+maintainers:
+- name: mtomwing
+  email: mtomwing@gmail.com
+  url: https://paperback.dev
+
+type: application
+version: 1.0.0
+appVersion: 0.44.4
