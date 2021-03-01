@@ -1,0 +1,84 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "valheim-server.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "valheim-server.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      {{- include "valheim-server.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "valheim-server.selectorLabels" . | nindent 8 }}
+    spec:
+      containers:
+      - name: {{ .Chart.Name }}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        env:
+        - name: SERVER_NAME
+          value: {{ .Values.valheim.server.name | quote }}
+        - name: SERVER_PORT
+          value: {{ .Values.valheim.server.basePort | quote }}
+        - name: SERVER_PUBLIC
+          value: {{ .Values.valheim.server.public | int | quote }}
+        - name: SERVER_PASS
+          value: {{ .Values.valheim.server.password | quote }}
+        - name: UPDATE_INTERVAL
+          value: {{ .Values.valheim.server.updateIntervalSeconds | quote }}
+        - name: WORLD_NAME
+          value: {{ .Values.valheim.world.name | quote }}
+        - name: BACKUPS_INTERVAL
+          value: {{ .Values.valheim.world.backupIntervalSeconds | quote }}
+        - name: BACKUPS_MAX_AGE
+          value: {{ .Values.valheim.world.backupMaxAgeDays | quote }}
+        ports:
+        - name: valheim-1
+          containerPort: {{ .Values.valheim.server.basePort }}
+          protocol: UDP
+        - name: valheim-2
+          containerPort: {{ .Values.valheim.server.basePort | add 1 }}
+          protocol: UDP
+        - name: valheim-3
+          containerPort: {{ .Values.valheim.server.basePort | add 2 }}
+          protocol: UDP
+        resources:
+          {{- toYaml .Values.resources | nindent 10 }}
+        volumeMounts:
+        - name: config
+          mountPath: /config
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      volumes:
+      - name: config
+      {{- if .Values.persistence.enabled }}
+        {{- if .Values.persistence.hostPath }}
+        hostPath:
+          path: {{ .Values.persistence.hostPath }}
+          type: Directory
+        {{- else if .Values.persistence.claimName }}
+        persistentVolumeClaim:
+          claimName: {{ .Values.persistence.claimName }}
+        {{- else }}
+        persistentVolumeClaim:
+          claimName: {{ include "valheim-server.fullname" . }}-config
+        {{- end }}
+      {{- else }}
+        emptyDir: {}
+      {{- end }}
