@@ -90,4 +90,15 @@ entries:
     urls:
     - https://github.com/mtomwing/helm-charts/releases/download/trilium-1.0.0/trilium-1.0.0.tgz
     version: 1.0.0
-generated: "2020-09-03T00:32:25.496508556Z"
+  valheim-server:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2021-03-01T05:25:13.719338257Z"
+    description: A Helm chart for Kubernetes
+    digest: 0a83a0a2c252389573e0b5289b14e6ef8b6339a52649fbe1581e0e694c9f0c6a
+    name: valheim-server
+    type: application
+    urls:
+    - https://github.com/mtomwing/helm-charts/releases/download/valheim-server-1.0.0/valheim-server-1.0.0.tgz
+    version: 1.0.0
+generated: "2021-03-01T05:25:13.719348057Z"
