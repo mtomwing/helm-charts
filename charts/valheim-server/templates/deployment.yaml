@@ -30,8 +30,14 @@ spec:
           value: {{ .Values.valheim.server.public | int | quote }}
         - name: SERVER_PASS
           value: {{ .Values.valheim.server.password | quote }}
+        - name: TZ
+          value: {{ .Values.valheim.server.timezone | quote }}
+        - name: UPDATE_CRON
+          value: {{ .Values.valheim.server.updateCron | quote }}
         - name: UPDATE_INTERVAL
           value: {{ .Values.valheim.server.updateIntervalSeconds | quote }}
+        - name: RESTART_CRON
+          value: {{ .Values.valheim.server.restartCron | quote }}
         - name: WORLD_NAME
           value: {{ .Values.valheim.world.name | quote }}
         - name: BACKUPS_INTERVAL

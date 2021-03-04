@@ -24,6 +24,9 @@ valheim:
     public: false
     basePort: 2456
     updateIntervalSeconds: 10800  # 3hrs
+    timezone: Etc/UTC
+    restartCron: "0 * * * *"
+    updateCron: "*/15 * * * *"
   world:
     name: myworld
     backupIntervalSeconds: 10800  # 3hrs
